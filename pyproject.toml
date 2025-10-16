@@ -99,35 +99,19 @@ no-build-isolation-package = ["deepspeed"]
 # NOTE: We must explicitly request them as `dependencies` above. These improved
 # versions will not be selected if they're only third-party dependencies.
 torch = [
-  { index = "torch-rocm"},
+  { index = "pytorch-cuda", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
 torchaudio = [
-  { index = "torchaudio-rocm"},
+  { index = "pytorch-cuda", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
 torchvision = [
-  { index = "torchvision-rocm"},
+  { index = "pytorch-cuda", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
 
 [[tool.uv.index]]
-name = "torch-rocm"
+name = "pytorch-cuda"
 # Use PyTorch built for NVIDIA Toolkit version 12.8.
 # Available versions: https://pytorch.org/get-started/locally/
-url = "https://download.pytorch.org/whl/rocm6.4/torch-2.8.0%2Brocm6.4-cp310-cp310-manylinux_2_28_x86_64.whl#sha256=1fb876f6c215282bbfe8f3dc6d17a3b8755865601fac44e7c036a3f55b84a315"
-# Only use this index when explicitly requested by `tool.uv.sources`.
-explicit = true
-
-[[tool.uv.index]]
-name = "torchaudio-rocm"
-# Use PyTorch built for NVIDIA Toolkit version 12.8.
-# Available versions: https://pytorch.org/get-started/locally/
-url = "https://download.pytorch.org/whl/rocm6.4/torchaudio-2.8.0%2Brocm6.4-cp310-cp310-manylinux_2_28_x86_64.whl#sha256=6588319563e6fcc3daec0cab3ee43fe850a7fee7d833629509cb8db51875a976"
-# Only use this index when explicitly requested by `tool.uv.sources`.
-explicit = true
-
-[[tool.uv.index]]
-name = "torchvision-rocm"
-# Use PyTorch built for NVIDIA Toolkit version 12.8.
-# Available versions: https://pytorch.org/get-started/locally/
-url = "https://download.pytorch.org/whl/rocm6.4/torchvision-0.24.0%2Brocm6.4-cp310-cp310-manylinux_2_28_x86_64.whl#sha256=5c2d03f42e893937ef22b91d4003ba79e6d796a6318f41aeba2f80679566e33a"
+url = "https://download.pytorch.org/whl/cu128"
 # Only use this index when explicitly requested by `tool.uv.sources`.
 explicit = true
