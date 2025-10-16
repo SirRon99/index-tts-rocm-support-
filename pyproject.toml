@@ -108,9 +108,7 @@ torchaudio = [
 torchvision = [
   { index = "pytorch-rocm", marker = "sys_platform == 'linux'" },
 ]
-pytorch-triton-rocm = [
-  { index = "pytorch-rocm",  marker = "sys_platform == 'linux'" },
-]
+pytorch-triton-rocm = { url = "https://download.pytorch.org/whl/pytorch_triton_rocm-3.4.0-cp310-cp310-linux_x86_64.whl#sha256=1ee0a5cf569175e63b43bc334dcaaf6f9b0d88eb455a452869c2bab14e1f7eb4" }
 
 [[tool.uv.index]]
 name = "pytorch-rocm"
