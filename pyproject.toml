@@ -56,6 +56,7 @@ dependencies = [
   "torchaudio==2.8.*",
   "tqdm>=4.67.1",
   "transformers==4.52.1",
+  "pytorch-triton-rocm==3.4.0",
 
   # Use "wetext" on Windows/Mac, otherwise "WeTextProcessing" on Linux.
   "wetext>=0.0.9; sys_platform != 'linux'",
@@ -106,6 +107,9 @@ torchaudio = [
 ]
 torchvision = [
   { index = "pytorch-rocm", marker = "sys_platform == 'linux'" },
+]
+pytorch-triton-rocm = [
+  { index = "pytorch-rocm",  marker = "sys_platform == 'linux'" },
 ]
 
 [[tool.uv.index]]
